@@ -4,7 +4,7 @@
 
 After a disaster, we usually get millions of messages either directly or via social media, and it can too difficult for disaster response organizations to pull out significant messages and arrange related organizations to take care of different parts of problem.
 
-Therefore, the aim of this project is to build a web app that can classify each message into which categories it belongs to by machine learning according to the dataset provided by Figure Eight. For example, if you input "I need water" on the web, you will found "Related", "Request", "Air Related" and "Water" are highlighted, which means the message belongs to these categories. According to classification results, corresponding organizations can implement rescue.
+Therefore, the aim of this project is to build a web app that can classify each message into which categories it belongs to by machine learning according to the dataset provided by Figure Eight. For example, if you input "I need water" on the web, you will found "Related", "Request", "Aid Related" and "Water" are highlighted, which means the message belongs to these categories. According to classification results, corresponding organizations can implement rescue.
 
 Below is what the homepage looks like. It displays some visualizations about the dataset.
 
