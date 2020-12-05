@@ -5,6 +5,16 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+    """
+    Load massages and categories data.
+    
+    INPUT:
+        messages_filepath - a string that descibes the file path of messages.
+        categories_filepath - a string that descibes the file path of categories.
+        
+    OUTPUT:
+        df - a DataFrame which is merged by messages and categories data.
+    """
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = messages.merge(categories, left_on='id', right_on='id')
@@ -12,6 +22,15 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    """
+    Clean the df DataFrame.
+    
+    INPUT:
+        df - a DataFrame.
+        
+    OUTPUT:
+        df - a DataFrame which has been processed from df.
+    """
     categories = pd.DataFrame(df['categories'].str.split(';').tolist())
     row = categories.loc[0, :]
     category_colnames = row.apply(lambda x: x[:-2]).tolist()
@@ -26,11 +45,30 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
+    """
+    Store the cleaned data into database.
+    
+    INPUT:
+        df - a DataFrame which has been cleaned.
+        database_filename - a string that descibes the file name of database.
+        
+    OUTPUT:
+        None.
+    """
     engine = create_engine('sqlite:///'+database_filename)
     df.to_sql('DisasterResponse', engine, if_exists='replace', index=False) 
 
 
 def main():
+    """
+    Main program that load, clean and save the data.
+    
+    INPUT:
+        None.
+        
+    OUTPUT:
+        None.
+    """
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
