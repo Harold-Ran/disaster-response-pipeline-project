@@ -8,11 +8,11 @@ Therefore, the aim of this project is to build a web app that can classify each 
 
 Below is what the homepage looks like. It displays some visualizations about the dataset.
 
-![homepage](C:\Users\zengh\Desktop\Project2\homepage.jpeg)
+![homepage](homepage.jpeg)
 
 If you input messages in blank bar, and click "Classify Message" button, then you can get classification results as below.
 
-![classify_page](C:\Users\zengh\Desktop\Project2\classify_page.jpeg)
+![classify_page](classify_page.jpeg)
 
 ## Description of each file
 
