@@ -39,7 +39,17 @@ def clean_data(df):
         categories[column] = categories[column].str[-1]
         categories[column] = pd.to_numeric(categories[column])
     df.drop('categories', axis=1, inplace=True)
+    
     df = pd.concat([df, categories], axis=1)
+    
+    # Convert 'related' column to binary
+    def convert_to_binary(x):
+        if x > 0:
+            return 1
+        else:
+            return 0
+    df['related'] = df['related'].apply(convert_to_binary)
+    
     df.drop_duplicates(inplace=True)
     return df
 
